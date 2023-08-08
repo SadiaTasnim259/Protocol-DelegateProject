@@ -8,12 +8,33 @@
 import UIKit
 
 class InternViewController: UIViewController {
+    
+    @IBOutlet weak var selectedImageView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    @IBAction func chooseButtonTapped(_ sender: UIButton) {
+        
+        let bossViewController = self.storyboard?.instantiateViewController(withIdentifier: "BossViewController") as! BossViewController
+        bossViewController.seletectedDelegate = self
+                //secondViewController.placeImage = UIImage(named: imageName)
+                
+                self.navigationController?.pushViewController(bossViewController, animated: true)
+    }
+    
 
+}
 
+extension InternViewController: SelectionDelegate{
+    func didChoice(image: UIImage, backgroundColor: UIColor) {
+        selectedImageView.image = image
+        view.backgroundColor = backgroundColor
+    }
+    
+    
 }
 

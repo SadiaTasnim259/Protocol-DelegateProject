@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Erw-dV-mzd">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -39,6 +39,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Choose a Side">
                                             <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="30"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="chooseButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MbS-Ip-kOu"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YtR-tO-ldz">
                                         <rect key="frame" x="56.666666666666657" y="360" width="280" height="260"/>
@@ -71,15 +74,19 @@
                             <constraint firstAttribute="bottom" secondItem="7NB-CD-7Mq" secondAttribute="bottom" id="SBH-a2-w1c"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GUh-D8-c2I"/>
+                    <connections>
+                        <outlet property="selectedImageView" destination="YtR-tO-ldz" id="d0L-6U-msh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231.29770992366412" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="695.41984732824426" y="-27.464788732394368"/>
         </scene>
         <!--Boss View Controller-->
         <scene sceneID="c7q-1s-ZKG">
             <objects>
-                <viewController id="T6G-Vd-zbo" customClass="BossViewController" customModule="Protocol_DelegateProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BossViewController" id="T6G-Vd-zbo" customClass="BossViewController" customModule="Protocol_DelegateProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oQ1-DQ-Ozf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,7 +113,10 @@
                                                     <constraint firstAttribute="height" constant="120" id="opC-KF-8gW"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="Screenshot 2023-08-08 at 4.30.31 PM"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="uikit"/>
+                                                <connections>
+                                                    <action selector="uiKitButtonTapped:" destination="T6G-Vd-zbo" eventType="touchUpInside" id="QaI-Sk-2KF"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHI-Av-cl2">
                                                 <rect key="frame" x="0.0" y="270" width="240" height="120"/>
@@ -115,7 +125,10 @@
                                                     <constraint firstAttribute="height" constant="120" id="p5k-SI-UFs"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="Screenshot 2023-08-08 at 4.32.42 PM"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="swiftUI"/>
+                                                <connections>
+                                                    <action selector="swiftUIuttonTapped:" destination="T6G-Vd-zbo" eventType="touchUpInside" id="4GJ-bt-gC1"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -139,15 +152,34 @@
                             <constraint firstAttribute="bottom" secondItem="xQP-NZ-Fx0" secondAttribute="bottom" id="pUk-i4-laU"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="8SW-MT-flF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Gd-sZ-JL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="664.8854961832061" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1414.5038167938931" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e5l-1j-DCu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Erw-dV-mzd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="c97-rf-pdo">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="W0M-UE-cfM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nj0-u3-IHp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-231.29770992366412" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Screenshot 2023-08-08 at 4.30.31 PM" width="230" height="223"/>
-        <image name="Screenshot 2023-08-08 at 4.32.42 PM" width="245" height="227"/>
+        <image name="swiftUI" width="245" height="227"/>
+        <image name="uikit" width="230" height="223"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
