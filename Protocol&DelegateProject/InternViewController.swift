@@ -21,9 +21,8 @@ class InternViewController: UIViewController {
         
         let bossViewController = self.storyboard?.instantiateViewController(withIdentifier: "BossViewController") as! BossViewController
         bossViewController.seletectedDelegate = self
-                //secondViewController.placeImage = UIImage(named: imageName)
                 
-                self.navigationController?.pushViewController(bossViewController, animated: true)
+        self.navigationController?.pushViewController(bossViewController, animated: true)
     }
     
 
